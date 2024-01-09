@@ -1,13 +1,27 @@
 .navbar {
-    background-color: #5d4037 !important;
+    background-color: #4e342e !important;
     padding: 10px 20px;
 }
 
 .navbar-brand{
-    font-size: 1.5rem;
+    list-style: none;
+    max-width: 60px;
+    max-height: 60px;
+    text-decoration: none;
+    color: inherit;
 }
 
 .nav-link{
     text-align: center;
     width: 100%;
+}
+
+.btn{
+    background-color: #4e342e;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.btn:hover{
+    color: aliceblue;
 }
