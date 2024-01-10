@@ -2,8 +2,8 @@ import React from 'react'
 import { Hero } from '../Components/Hero/Hero'
 import { About } from '../Components/About/About'
 import { Footer } from '../Components/Footer/Footer'
-import { Catalog } from '../Components/Catalog/Catalog'
 import { NewCollection } from '../Components/NewCollection/NewCollection'
+import Newsletter from '../Components/Newsletter/Newsletter'
 
 export const Home = () => {
   return (
@@ -11,7 +11,7 @@ export const Home = () => {
     <Hero/>
     <About/>
     <NewCollection/>
-    <Catalog/>
+    <Newsletter/>
     <Footer/>
     </div>
   )

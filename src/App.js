@@ -5,7 +5,7 @@ import { Navbar } from './Components/Navbar/Navbar';
 import { About } from './Components/About/About';
 import { Product } from './Components/Product/Product';
 import { Signup } from './Components/Signup/Signup';
-
+import { ProductDetails } from './Components/ProductDetails/ProductDetails'
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
         <Route path='/About' element={<About/>}/>
         <Route path='/Product' element={<Product/>}/>
         <Route path='/Signup' element={<Signup/>}/>
+        <Route path='/product/:productId' element={<ProductDetails/>} />
         </Routes>
       </BrowserRouter>
     </div>
