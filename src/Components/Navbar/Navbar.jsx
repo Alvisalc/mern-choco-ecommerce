@@ -1,29 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
+import logo from '../Assets/choco-white.png'
+import { IoCartOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom';
-import logoImage from '../Assets/choco-white.png'
+
 
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark">
-        <div className="container-fluid">
-          <Link to="/">
-            <img src={logoImage} alt="Choco Logo" className="navbar-brand" />
-          </Link>        
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <div className="navbar-nav mr-auto">
-              <Link className="nav-link" to="/">Home</Link>
-              <Link className="nav-link" to="/About">About</Link>
-              <Link className="nav-link" to="/Product">Product</Link>
-            </div>
-          </div>
-          <div className="navbar-nav">
-              <Link className="nav-link btn outline-warning" to="/Signup">SignUp</Link>
-          </div>
-        </div>
+    <nav className="navbar">
+      {/* navbar-left-section */}
+      <div className="nav-logo">
+        <img className="logo" src={logo} alt="" />
+        <p>Choco</p>
+      </div>
+      {/* navbar-menu-center */}
+      <ul className="nav-menu">
+        <li><Link to="/">Shop</Link></li>
+        <li><Link to="/assorted">Assorted</Link></li>
+        <li><Link to="/cakes">Cakes</Link></li>
+        <li><Link to="chocolates">Chocolates</Link></li>
+      </ul>
+      {/* navbar-right-section */}
+      <div className="nav-login-cart">
+        <Link to="/login"><button>Login</button></Link>
+        <Link to="/cart"><IoCartOutline className="cart-icon"/></Link>
+        <div className="cart-count">0</div>
+      </div>
     </nav>
   );
 };

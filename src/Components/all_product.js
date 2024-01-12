@@ -39,11 +39,13 @@ import pd36 from './Assets/pd-choco-12.jpg';
 
 const productData = [
   // Assorted Selections
-  { id: 1, 
-    name: 'Milk Chocolates Assorted Selection', 
-    price: 5.99, 
-    imageUrl: pd1, 
-    description: 'Delicious milk chocolates in assorted flavors.' },
+  {
+    id: 1,
+    name: 'Milk Chocolates Assorted Selection',
+    price: 5.99,
+    imageUrl: pd1,
+    description: 'Delicious milk chocolates in assorted flavors.'
+  },
   { id: 2, name: 'Royal Assorted Selection', price: 12.99, imageUrl: pd2, description: 'An exquisite assortment fit for royalty.' },
   { id: 3, name: 'Mixed Assorted Selection', price: 8.49, imageUrl: pd3, description: 'A delightful mix of assorted chocolates to tantalize your taste buds.' },
   { id: 4, name: 'Fruit Galaxy Assorted Selection', price: 7.99, imageUrl: pd4, description: 'Explore a galaxy of fruity flavors in this assorted collection.' },

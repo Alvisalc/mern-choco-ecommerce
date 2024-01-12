@@ -1,4 +1,73 @@
-.navbar {
+.navbar{
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    padding: 16px;
+    box-shadow: 0 1px 3px -2px black;
+}
+
+.nav-logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* minimize the logo size */
+.logo{
+    max-width: 80px;
+    max-height: 70px;
+}
+
+.nav-logo p{
+    margin: 0;
+    color: white;
+    font-size: 38px;
+    font-weight: 600;
+}
+
+.nav-menu{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 50px;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.nav-login-cart{
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+
+.cart-icon{
+    font-size: 2rem;
+    color: white;
+    margin: 0 10px;
+}
+
+.cart-count{
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -25px;
+    margin-left: -65px;
+    border-radius: 11px;
+    font-size: 14px;
+    background: white;
+    color: #4e342e;
+}
+
+
+
+
+
+
+/* .navbar {
     background-color: #4e342e !important;
     padding: 10px 20px;
 }
@@ -24,4 +93,4 @@
 
 .btn:hover{
     color: aliceblue;
-}
+} */
