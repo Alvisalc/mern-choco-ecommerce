@@ -36,10 +36,22 @@
     font-weight: 500;
 }
 
+.nav-menu li{
+    text-decoration: none;
+}
+
 .nav-login-cart{
     display: flex;
     align-items: center;
     gap: 45px;
+}
+
+.nav-login-cart button{
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .cart-icon{
