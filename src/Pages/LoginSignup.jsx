@@ -16,7 +16,6 @@ export const LoginSignup = () => {
       </div>
       <button type="submit">Login</button>
       <p className="loginsignup-signup">New Registration? <span>Sign Up</span></p>
-      
     </form>
   </div>
   )

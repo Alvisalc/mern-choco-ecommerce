@@ -1,0 +1,47 @@
+.cartitems{
+    margin: 100px 170px;
+}
+
+.cartitems hr{
+    height: 3px;
+    background: gray;
+    border: 0;
+}
+
+.cartitems-format-main{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    gap: 70px;
+    padding: 20px 0px;
+    color: #454545;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cartitems-format{
+    font-size: 18px;
+}
+
+/* resolve the css overrided by reboot.scss */
+.cartitems-format p{
+    margin-bottom: 0;
+}
+
+.carticon-product-icon{
+    height: 95px;
+}
+
+.cartitems-remove-icon{
+    font-size: 2rem;
+    width: 30px;
+    margin: 0px 10px;
+    cursor: pointer;
+}
+
+.cartitems-quantity{
+    width: 50px;
+    height: 50px;
+    border: 2px solid #ebebeb;
+    background: white;
+}

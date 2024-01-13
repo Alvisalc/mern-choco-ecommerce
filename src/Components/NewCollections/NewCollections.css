@@ -3,11 +3,11 @@ h2 {
     color: #5d4037;
   }
   
-  hr {
-    width: 50px;
-    border: 1px solid #5d4037;
-    margin: 10px auto;
-  }
+.new-collections hr {
+  width: 50px;
+  border: 1px solid #5d4037;
+  margin: 10px auto;
+}
 
 .new-collections{
   display: flex;

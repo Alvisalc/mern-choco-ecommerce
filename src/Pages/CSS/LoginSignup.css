@@ -20,12 +20,12 @@
     margin-bottom: 20px;
   }
   
-  label {
+  .loginsignup-container label {
     display: block;
     margin-bottom: 5px;
   }
   
-  input {
+  .loginsignup-container input {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
@@ -33,7 +33,7 @@
     border-radius: 4px;
   }
   
-  button {
+  .loginsignup-container button {
     background-color: #5d4037;
     color: #fff;
     padding: 10px 20px;
@@ -44,7 +44,7 @@
     transition: background-color 0.3s;
   }
   
-  button:hover {
+  .loginsignup-container button:hover {
     background-color: #4e342e;
   }
   
