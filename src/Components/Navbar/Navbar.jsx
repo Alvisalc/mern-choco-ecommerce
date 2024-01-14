@@ -11,12 +11,15 @@ export const Navbar = () => {
   const {getTotalCartItems} = useContext(ShopContext);
 
   return (
-    <nav className="navbar">
+    <nav className="navbar navbar-expand-lg">
       {/* navbar-left-section */}
       <div className="nav-logo">
         <img className="logo" src={logo} alt="" />
         <p>Choco</p>
       </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
       {/* navbar-menu-center */}
       <ul className="nav-menu">
         <li><Link className="nav-link" to="/">Shop</Link></li>

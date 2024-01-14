@@ -21,6 +21,23 @@
 
 .popular-item{
     margin-top: 50px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 30px;
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:1024px) {
+    
+}
+
+@media (max-width:768px) {
+    
+}
+
+@media (max-width:500px) {
+    
 }
