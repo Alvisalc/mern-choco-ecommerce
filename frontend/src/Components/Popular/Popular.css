@@ -21,23 +21,35 @@
 
 .popular-item{
     margin-top: 50px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: 30px;
 }
 
 @media (max-width:1280px) {
-
+    .poputlar-item{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media (max-width:1024px) {
-    
+    .poputlar-item{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media (max-width:768px) {
-    
+    .poputlar-item{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media (max-width:500px) {
-    
+    .poputlar-item{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
