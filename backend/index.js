@@ -110,6 +110,12 @@ app.post('/removeproduct',async(req,res)=>{
     })
 })
 
+// Get all Products
+app.get('/allproducts',async (req,res)=>{
+    let products = await Product.find({});
+    console.log("All Products Fetached");
+    res.send(products);
+})
 
 // check the server connection 
 app.listen(port,(error)=>{
