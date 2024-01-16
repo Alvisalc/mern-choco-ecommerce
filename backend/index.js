@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
+const bcrypt = require('bcrypt'); // secure user password
 require('dotenv').config();
 
 app.use(express.json());
@@ -115,6 +116,92 @@ app.get('/allproducts',async (req,res)=>{
     let products = await Product.find({});
     console.log("All Products Fetached");
     res.send(products);
+})
+
+// Shema creating for User model
+const Users = mongoose.model("Users",{
+    name:{
+        type:String,    
+    },
+    email:{ // check if we need this
+        type:String,
+        unique:true,
+    },
+    password:{
+        type:String,
+    },
+    cartData:{
+        type:Object,
+    },
+    date:{
+        type:Date,
+        default:Date.now,
+    }
+})
+
+// SignUp 
+app.post("/signup",async (req,res)=>{
+    let check = await Users.findOne({email:req.body.email});
+    if (check){
+        return res.status(400).json({success:false,errors:"email has been registered"})
+    }
+
+    // If the user not register before, will create a cart
+    let cart = {};
+    for (let i = 0; i < 300; i++){
+        cart[i] = 0;
+    }
+
+    // Hash the password being saving
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+
+    // user will be created
+    const user = new Users({
+        name:req.body.username,
+        email:req.body.email,
+        password:hashedPassword,
+        cartData:cart,
+    })
+
+    // user save 
+    await user.save();
+
+    // data
+    const data = {
+        user:{
+            id:user.id
+        }
+    }
+
+    // jwt sign method to encypted the token
+    const token = jwt.sign(data,"secret_ecom");
+    res.json({success:true,token})
+
+})
+
+// Creating endpoint for user login
+app.post("/login", async (req,res)=>{
+    let user = await Users.findOne({email:req.body.email});
+    if (user) {
+        // Compare hashed password
+        const passCompare = await bcrypt.compare(req.body.password, user.password);
+        // Check if password is correct
+        if (passCompare) {
+            const data ={
+                user:{
+                    id:user.id
+                }
+            }
+            const token = jwt.sign(data,"secret_ecom");
+            res.json({success:true,token});
+        }
+        else{
+            res.json({success:false,errors:"Wrong Password"});
+        }
+    }
+    else{
+        res.json({success:false,errors:"Wrong Email Id"});
+    }
 })
 
 // check the server connection 
