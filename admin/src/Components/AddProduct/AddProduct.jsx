@@ -8,7 +8,7 @@ export const AddProduct = () => {
     const [productDetails, setProductDetails] = useState({
         name:"",
         image:"",
-        category:"Cakes",
+        category:"assorted",
         price:""
     })
 
@@ -66,15 +66,15 @@ export const AddProduct = () => {
             </div>
             <div className="addproduct-itemfield">
                 <p>Product Category</p>
-                <select value={productDetails.category} name="category" className="add-product-selector">
+                <select value={productDetails.category} onChange={changeHandler} name="category" className="add-product-selector">
                     <option value="assorted">Assorted</option>
-                    <option value="cakes">Cakes</option>
-                    <option value="chocolates">Chocolates</option>
+                    <option value="cake">Cakes</option>
+                    <option value="chocolate">Chocolates</option>
                 </select>
             </div>
             <div className="addproduct-itemfield">
                 <label htmlFor="file-input">
-                    <img src={upload_area} className="addproduct-thumbnail-img" alt="" />
+                    <img src={image?URL.createObjectURL(image):upload_area} className="addproduct-thumbnail-img" alt="" />
                 </label>
                 <input onChange={imageHandler} type="file" name="image" id="file-input" hidden />
             </div>
