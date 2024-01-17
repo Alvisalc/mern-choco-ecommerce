@@ -1,12 +1,12 @@
 import React, { createContext, useState } from 'react'
-import all_product from '../Components/all_product'
+import all_product from '../Components/all_product.js'
 
 export const ShopContext = createContext(null);
 
     // create a empty cart
     const getDefaultCart = ()=>{
         let cart = {};
-        for (let index=0; index < all_product.length+1; index++){
+        for (let index=0; index < 300+1; index++){
             cart[index] = 0;
         }
         return cart;

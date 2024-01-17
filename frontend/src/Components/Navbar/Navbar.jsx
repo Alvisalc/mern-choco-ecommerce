@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import './Navbar.css';
 import logo from '../Assets/choco-white.png'
 import { IoCartOutline } from "react-icons/io5";
@@ -17,9 +17,6 @@ export const Navbar = () => {
         <img className="logo" src={logo} alt="" />
         <p>Choco</p>
       </div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      </button>
       {/* navbar-menu-center */}
       <ul className="nav-menu">
         <li><Link className="nav-link" to="/">Shop</Link></li>

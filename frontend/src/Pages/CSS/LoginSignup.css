@@ -47,7 +47,7 @@
   .loginsignup-container button:hover {
     background-color: #4e342e;
   }
-  
+
   .loginsignup-signup{
     margin-top: 20px;
     color: #5c5c5c;
@@ -58,4 +58,5 @@
   .loginsignup-signup span{
     color: red;
     font-weight: 600;
+    cursor: pointer;
   }
