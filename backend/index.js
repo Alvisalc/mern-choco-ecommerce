@@ -204,6 +204,35 @@ app.post("/login", async (req,res)=>{
     }
 })
 
+// creating middleware to fetch user
+const fetchUser = async (req,res,next)=>{
+    const token = req.header("auth-token");
+    if (!token){
+        res.status(401).send({errors:"Please use valid token"})
+    }
+    else{
+        try{
+            const data = jwt.verify(token,"secret_ecom");
+            req.user = data.user;
+            next();
+        } catch (error) {
+            res.status(401).send({errors:"Please use valid token"})
+        }
+    }
+}
+
+
+// creating enpoint for adding products to cart
+app.post("/addtocart",fetchUser,async(req,res)=>{
+    // console.log(req.body,req.user);
+
+    let userData = await Users.findOne({_id:req.user.id});
+    userData.cartData[req.body.itemId] += 1;
+    await Users.findOneAndUpdate({id:req.user.id},{cartData:userData.cartData});
+    res.send("Added")
+
+})
+
 // check the server connection 
 app.listen(port,(error)=>{
     if (!error) {
