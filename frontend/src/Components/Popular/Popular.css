@@ -1,4 +1,5 @@
 .popular{
+    margin: 10px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,7 +27,7 @@
     gap: 30px;
 }
 
-@media (max-width:1280px) {
+/* @media (max-width:1280px) {
     .poputlar-item{
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -40,16 +41,15 @@
     }
 }
 
-@media (max-width:768px) {
+@media (max-width:800px) {
     .poputlar-item{
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
-}
+} */
 
-@media (max-width:500px) {
-    .poputlar-item{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+@media (max-width: 800px) {
+    .popular-item {
+        grid-template-columns: 1fr;
     }
 }

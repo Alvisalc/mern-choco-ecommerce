@@ -1,0 +1,36 @@
+.subhero-container-box{
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 19px;
+}
+
+.subhero-container{
+    display: flex;
+    height: 30rem;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.subhero-left{
+    align-items: center;
+    background-color: #e9e9e9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 11rem;
+    text-align: start;
+    width: 50%;
+}
+
+.subhero-right{
+    background-color: #e9e9e9;
+    text-align: end;
+    width: 50%;
+}
+
+.subhero-right img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
