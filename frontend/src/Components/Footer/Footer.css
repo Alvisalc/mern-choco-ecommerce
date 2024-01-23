@@ -1,3 +1,15 @@
 .footer-color{
-    background-color: #4e342e !important;
+    background-color: #4e342e;
+}
+
+.social-icons{
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.footer-links{
+    margin-bottom: 8px;
+    color: #fff;
+    text-decoration: none;
 }

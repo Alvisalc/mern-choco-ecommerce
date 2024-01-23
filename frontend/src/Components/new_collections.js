@@ -1,9 +1,9 @@
-import pd1 from './Assets/pd-assort-1.jpg';
-import pd2 from './Assets/pd-cake-2.jpg';
-import pd3 from './Assets/pd-choco-6.jpg';
-import pd4 from './Assets/pd-assort-7.jpg';
-import pd5 from './Assets/pd-assort-3.jpg';
-import pd6 from './Assets/pd-assort-12.jpg';
+import pd1 from './Assets/pd-assort-2.jpg';
+import pd2 from './Assets/pd-cake-5.jpg';
+import pd3 from './Assets/pd-choco-3.jpg';
+import pd4 from './Assets/pd-assort-6.jpg';
+import pd5 from './Assets/pd-assort-7.jpg';
+import pd6 from './Assets/pd-assort-10.jpg'; 
 import pd7 from './Assets/pd-cake-6.jpg';
 import pd8 from './Assets/pd-choco-11.jpg';
 
@@ -17,7 +17,7 @@ let new_collections = [
     },
     {
         id: 14, 
-        name: 'Double Layer Cake Chocolates', 
+        name: 'Double Layer Cake', 
         price: 11.99, 
         imageUrl: pd2, 
         description: 'Experience the double-layered goodness with these cake-flavored chocolates.'

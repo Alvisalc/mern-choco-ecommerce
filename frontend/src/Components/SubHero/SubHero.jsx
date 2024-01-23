@@ -11,8 +11,7 @@ export const SubHero = () => {
                 <p>Your will find the most delighted sweets here.</p>
             </div>
             <div className="subhero-right">
-                <img src={banner} alt="banner" />
-                <p>Right</p>
+                <img src={banner} alt="banner1" />
             </div>
         </div>
     </div>
