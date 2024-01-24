@@ -8,8 +8,6 @@ export const Breadcrum = (props) => {
   return (
     <div className="breadcrum">
         HOME <IoIosArrowForward /> SHOP <IoIosArrowForward /> {product.category} <IoIosArrowForward /> {product.name}
-
-
     </div>
   )
 }

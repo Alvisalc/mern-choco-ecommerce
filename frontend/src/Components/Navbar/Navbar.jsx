@@ -4,6 +4,8 @@ import logo from '../Assets/choco-white.png'
 import { IoCartOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import { ShopContext } from '../../Context/ShopContext';
+import { FaBars } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 
 
 export const Navbar = () => {

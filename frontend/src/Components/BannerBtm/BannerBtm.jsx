@@ -1,6 +1,7 @@
 import React from 'react'
 import './BannerBtm.css'
 import banner from '../Assets/banner-3.jpg'
+import {Link} from 'react-router-dom'
 
 export const BannerBtm = () => {
   return (
@@ -12,7 +13,7 @@ export const BannerBtm = () => {
             <div className="banner-bottom-right">
             <h2>Discover Your Perfect Gift: An Assorted Selection of Delight</h2>
             <p>Embark on a journey of joy and surprise with our curated collection of gifts. Each item is a carefully chosen expression of love and thoughtfulness, waiting to bring delight to your special moments.</p>
-            <button>Explore More</button>
+            <Link to="/assorted"><button>Explore More</button></Link>
             </div>
         </div>
     </div>

@@ -28,14 +28,6 @@ export const ProductDisplay = (props) => {
                 <h1>{product.name}</h1>
                 <div className="productdisplay-right-prices">${product.price}</div>
                 <div className="productdisplay-right-description">{product.description}</div>
-                <div className="productdisplay-right-number">
-                    <h1>Select Number</h1>
-                    <div className="productdisplay-right-number-container">
-                    <FiMinus className="productdisplay-right-number-btn"/>
-                    0
-                    <IoIosAdd className="productdisplay-right-number-btn"/>
-                    </div>
-                </div>
                 <button onClick={()=>{addToCart(product.id)}}>ADD TO CART</button>
             </div>
         </div>

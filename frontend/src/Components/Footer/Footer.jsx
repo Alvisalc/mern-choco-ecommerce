@@ -28,13 +28,12 @@ export const Footer = () => {
               <li><a className="footer-links" href="/contact">Careers</a></li>
             </ul>
           </div>
-          
           <div className="col-md-4 mb-4">
             <h5>Follow Us</h5>
             <p>
-              <FaFacebookSquare className='social-icons'/>
-              <FaSquareXTwitter className='social-icons'/>
-              <FaInstagramSquare className='social-icons'/>
+              <FaFacebookSquare className="social-icons"/>
+              <FaSquareXTwitter className="social-icons"/>
+              <FaInstagramSquare className="social-icons"/>
             </p>
           </div>
         </div>

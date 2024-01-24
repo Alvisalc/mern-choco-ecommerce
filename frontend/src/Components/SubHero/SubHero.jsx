@@ -7,8 +7,8 @@ export const SubHero = () => {
     <div className="subhero-container-box">
         <div className="subhero-container">
             <div className="subhero-left">
-                <h2>Discover the chocolate world</h2>
-                <p>Your will find the most delighted sweets here.</p>
+                <h2>Experience with Organic Chocolate Delights</h2>
+                <p>Delight your senses with our luscious chocolate creations, meticulously crafted from the finest organic ingredients.</p>
             </div>
             <div className="subhero-right">
                 <img src={banner} alt="banner1" />

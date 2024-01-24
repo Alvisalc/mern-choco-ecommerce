@@ -1,24 +1,26 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import './CSS/ShopCategory.css'
 import { ShopContext } from '../Context/ShopContext'
-import { RxDropdownMenu } from "react-icons/rx";
 import Item from '../Components/Item/Item'
 
 
 export const ShopCategory = (props) => {
 
     const {all_product} = useContext(ShopContext);
+    const [categoryName, setCategoryName] = useState(props.name);
+
+    useEffect(() => {
+        // Update the category name when props.name changes
+        setCategoryName(props.name);
+    }, [props.name]);
 
     return (
         <div className="shop-category">
-            <img className="shop-banner" src={props.banner} alt="" />
+            <h1>{categoryName}</h1>
             <div className="shopcategory-indexSort">
                 <p>
                     <span>Showing 1-12</span> out of 36 products
                 </p>
-                <div className="shopcategory-sort">
-                    Sort by <RxDropdownMenu />
-                </div>
             </div>
             <div className="shopcategory-products">
                 {all_product.map((item, i)=>{
@@ -29,9 +31,6 @@ export const ShopCategory = (props) => {
                         return null;
                     }
                 })}
-            </div>
-            <div className="shopcategory-loadmore">
-                Explore More
             </div>
         </div>
     )
