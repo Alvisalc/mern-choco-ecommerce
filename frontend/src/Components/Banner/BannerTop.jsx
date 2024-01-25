@@ -1,7 +1,6 @@
 import React from 'react'
 import './Banner.css'
 import banner from "../Assets/banner-1.jpg"
-import {Link} from 'react-router-dom'
 
 export const BannerTop = () => {
   return (

@@ -33,7 +33,7 @@ export const NewCollections = () => {
       {
         breakpoint: 500,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
         }
       }
@@ -41,17 +41,19 @@ export const NewCollections = () => {
   };
 
   return (
-    <div className="new-collections">
-        <h2>New Collection</h2>
-        <hr/>
-        <div className="slider-container">
-        <Slider {...settings}>
-            {new_collections.map((item, i)=>{
-                return <Item key={i} id={item.id} name={item.name} image={item.imageUrl} price={item.price}/>
-            })}
-        </Slider>
+        <div className="new-collections-container">
+          <div className="new-collections">
+          <h1>New Collection</h1>
+          <hr/>
+          <div className="slider-container">
+          <Slider {...settings}>
+              {new_collections.map((item, i)=>{
+                  return <Item key={i} id={item.id} name={item.name} image={item.imageUrl} price={item.price}/>
+              })}
+          </Slider>
+          </div>
         </div>
-    </div>
+      </div>
   );
 };
 

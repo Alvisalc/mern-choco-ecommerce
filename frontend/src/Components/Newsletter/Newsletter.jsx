@@ -13,7 +13,7 @@ export const Newsletter = () => {
 
   return (
     <section className="newsletter-section">
-      <h2 className="section-title">Subscribe to Our Newsletter</h2>
+      <h2>Subscribe to Our Newsletter</h2>
       <p>Stay updated with our latest chocolate offerings and promotions!</p>
       <div className="newsletter-form">
         <input
@@ -28,4 +28,3 @@ export const Newsletter = () => {
   );
 };
 
-export default Newsletter;

@@ -1,17 +1,13 @@
-
-/* banner done */
 .banner{
     padding-bottom: 5rem;
 }
 
-/* container done */
 .container{
     margin: 0px auto;
     max-width: 1120px;
     padding: 0 19px;
 }
 
-/* banner-container done */
 .banner-container, .banner-container-reverse{
     display: flex;
     height: 35rem;
@@ -19,12 +15,10 @@
     overflow: hidden;
 }
 
-/* banner-reverse done */
 .banner-container-reverse{
     flex-direction: row-reverse;
 }
 
-/* text-side done */
 .text-side{
     align-items: center;
     background-color: #f4f4f4;
@@ -36,22 +30,19 @@
     width: 50%;
 }
 
-/* text-side h2 done */
 .text-side h2{
     font-size: 2.5rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
 }
 
-/* text-side p done */
 .text-side p{
     font-size: 1.5rem;
 }
 
-/* text button done */
 .text button{
     padding: 10px 20px;
-    font-size: 1.8em;
+    font-size: 1.5rem;
     background-color: #d32f2f;
     color: #fff;
     border: none;
@@ -60,26 +51,22 @@
     transition: background-color 0.3s;
 }
 
-/* text button hover done */
 .text button:hover{
     background-color: #b71c1c;
 }
 
-/* img-side done */
 .img-side{
     background-color: #f4f4f4;
     text-align: end;
     width: 50%;
 }
 
-/* img-side img done */
 .img-side img{
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
 
-/* media style done */
 @media (max-width:1280px) {
     .container{
         max-width: 980px;
@@ -127,12 +114,16 @@
 }
 
 @media (max-width:500px){
+    .banner{
+        padding-bottom: 0;
+    }
     .container{
-        padding: 50px;
+        padding: 0px 50px;
     }
     .banner-container{
         flex-direction: column;
         align-items: center;
+        height: 22rem;
     }
     .img-side{
         display: none;

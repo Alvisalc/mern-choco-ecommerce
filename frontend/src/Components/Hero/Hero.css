@@ -36,8 +36,8 @@
   }
   
   .hero-content button {
-    padding: 10px 20px;
-    font-size: 1rem;
+    padding: 15px 30px;
+    font-size: 1.3rem;
     background-color: #5d4037;
     border: none;
     color: #fff;
@@ -47,4 +47,27 @@
   
   .hero-content button:hover {
     background-color: #4e342e;
+  }
+
+
+  @media (max-width:800px) {
+      .hero-content h1{
+        font-size: 2.5rem;
+      }
+      .hero-content button {
+        font-size: 1.3rem;
+      }
+  }
+
+  @media (max-width:500px) {
+      .hero-content h1{
+        font-size: 1.8rem;
+      }
+      .hero-content p{
+        font-size: 1rem;
+      }
+      .hero-content button {
+        padding: 10px 20px;
+        font-size: 1rem;
+      }
   }
