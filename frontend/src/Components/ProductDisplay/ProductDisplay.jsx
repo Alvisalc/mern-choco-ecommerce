@@ -1,7 +1,5 @@
 import React, { useContext } from 'react'
 import './ProductDisplay.css'
-import { IoIosAdd } from "react-icons/io";
-import { FiMinus } from "react-icons/fi";
 import { ShopContext } from '../../Context/ShopContext';
 
 
