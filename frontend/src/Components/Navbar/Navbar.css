@@ -197,5 +197,27 @@ ul .nav-btn{
   }
   
   @media (max-width: 500px) {
-
+    .nav-login-cart .login-btn{
+        padding: 0;
+        font-size: 0;
+    }
+    .navbar{
+        padding: 20px 30px;
+    }
+    .nav-login-cart{
+        padding: 0px 10px;
+        
+    }
+    .nav-menu{
+        transition: 0.5s;
+    }
+    .logo{
+        max-width: 70px;
+        max-height: 60px;
+    }
+    .nav-bar{
+        display: flex;
+        flex-direction: row;
+        justify-self:auto;
+    }
   }
