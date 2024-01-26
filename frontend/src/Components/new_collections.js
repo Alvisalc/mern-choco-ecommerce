@@ -9,42 +9,42 @@ import pd8 from './Assets/pd-choco-11.jpg';
 
 let new_collections = [
     {
-        id: 1, 
+        id: 2, 
         name: 'Milk Chocolates Assorted Selection', 
         price: 5.99, 
         imageUrl: pd1, 
         description: 'Delicious milk chocolates in assorted flavors.'
     },
     {
-        id: 14, 
+        id: 17, 
         name: 'Double Layer Cake', 
         price: 11.99, 
         imageUrl: pd2, 
         description: 'Experience the double-layered goodness with these cake-flavored chocolates.'
     },
     {
-        id: 30, 
+        id: 27, 
         name: 'Cashew Bliss Chocolates', 
         price: 12.99, 
         imageUrl: pd3, 
         description: 'Experience bliss with the creamy texture of cashews and chocolate.'
     },
     {
-        id: 7, 
+        id: 6, 
         name: '24 Delight Assorted Selection', 
         price: 6.49, 
         imageUrl: pd4, 
         description: 'A smaller assortment of 24 delightful chocolates.'
     },
     {
-        id: 3, 
+        id: 7, 
         name: 'Mixed Assorted Selection', 
         price: 8.49, 
         imageUrl: pd5, 
         description: 'A delightful mix of assorted chocolates to tantalize your taste buds.'
     },
     {
-        id: 12, 
+        id: 10, 
         name: 'Darkness Assorted Selection', 
         price: 24.99, 
         imageUrl: pd6, 
