@@ -118,7 +118,7 @@ ul .nav-btn{
         gap: 1.5rem;
         background-color: #4e342e;
         transition: 1s;
-        transform: translateY(-100vh);
+        transform: translateY(-150vh);
         z-index: 2;
     }
 
@@ -171,7 +171,6 @@ ul .nav-btn{
         gap: 1.5rem;
         background-color: #4e342e;
         transition: 1s;
-        transform: translateY(-150vh);
         z-index: 2;
     }
 

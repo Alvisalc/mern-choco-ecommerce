@@ -35,7 +35,7 @@
         gap: 15px;
     }
     .relatedproducts-item img{
-        max-width: 250px;
-        max-height: 200px;
+        width: 250px;
+        height: 200px;
     } 
 }
