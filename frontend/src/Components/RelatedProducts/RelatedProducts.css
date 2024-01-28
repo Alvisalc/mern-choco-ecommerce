@@ -29,11 +29,16 @@
 }
 
 @media (max-width:1024px) {
-    
+    .relatedproducts h1{
+        font-size: 36px;
+    }
 }
 
 
 @media (max-width:800px) {
+    .relatedproducts h1{
+        font-size: 28px;
+    }
     .relatedproducts-item{
         display: grid;
         grid-template-columns: 1fr 1fr;
