@@ -22,6 +22,15 @@ app.get("/",(req,res)=>{
     res.send("Express App is Running")
 })
 
+// Stripe API
+const stripe = require('stripe')(process.env.strip_private_key)
+
+// StoreItems from cart to stripe check out
+const storeItems = new Map([
+    [1, {priceInCents: 10000, name:"First Price"}],
+    [2, {priceInCents: 20000, name:"Second Price"}]
+])
+
 // Image Storage Engine
 const storage = multer.diskStorage({
     destination: './upload/images',
