@@ -3,14 +3,14 @@ import all_product from '../Components/all_product.js'
 
 export const ShopContext = createContext(null);
 
-    // create a empty cart
-    const getDefaultCart = ()=>{
-        let cart = {};
-        for (let index=0; index < 300+1; index++){
-            cart[index] = 0;
-        }
-        return cart;
+// create a empty cart
+const getDefaultCart = ()=>{
+    let cart = {};
+    for (let index=0; index < 300+1; index++){
+        cart[index] = 0;
     }
+    return cart;
+}
 
 export const ShopContextProvider = (props) => {
 
@@ -31,7 +31,6 @@ export const ShopContextProvider = (props) => {
             })
             .then((res)=>res.json())
             .then((data)=>console.log(data));
-        // console.log(cartItems);
         }
     }
 
@@ -62,7 +61,7 @@ export const ShopContextProvider = (props) => {
                 totalAmount += itemInfo.price * cartItems[item];
             }
         }
-        return totalAmount;
+        return parseFloat(totalAmount.toFixed(2));
     }
 
     // Total Cart Item at the top right hand corner
