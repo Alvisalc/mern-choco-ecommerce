@@ -261,7 +261,7 @@ app.post('/create-checkout-session', async (req, res) => {
         cancel_url: `${process.env.CLIENT_URL}/cart`,
     });
 
-    res.send({id: session.id}); // change redirect to send 
+    res.send({id: session.id}); // pass it to frontend to identify the checkout session
 
     } catch (error) {
         console.error("Error creating checkout session:", error);

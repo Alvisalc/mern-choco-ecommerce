@@ -7,33 +7,38 @@ import {loadStripe} from '@stripe/stripe-js';
 
 export const CartItems = () => {
     const {all_product,cartItems,removeFromCart,getTotalCartAmount} = useContext(ShopContext);
-    const stripePromise = loadStripe('pk_test_51Oe2omJv1ndIt9tZIHqNDCBWAptlKEgsLFnt73tEXEL1xh9INhKJivohE73Jt97eOAMrjoAAid9ZF5sTlK24z6pv00ZkSRZkuG');
+    const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
-
-
+    // Check out with Stripe button logic
     const handleCheckout = async () => {
-
+        // create line items based on the items in the cart
         const lineItems = Object.keys(cartItems).map((itemId)=>{
             const quantity = cartItems[itemId];
             if(quantity > 0){
+                // find the product details based on the item id
                 const item = all_product.find((product)=>product.id === Number(itemId));
                 return {
+                    // price data for the Stripe session
                     price_data: {
                         currency: "cad",
                         product_data: {
                             name: item.name,
                         },
+                        // convert to cents (Stripe epects amount in cents)
                         unit_amount: Math.round(item.price * 100),
                     },
                     quantity: quantity
                 };
             }
-            return null; // exclude items with quantity 0 - works well
-        }).filter(Boolean); // remove null entries - works well
+            return null; // exclude items with quantity 0 - success
+        }).filter(Boolean); // remove null entries - success
 
         try{
+            // send request to the backend to create a checkout session
             const {data} = await axios.post('http://localhost:4000/create-checkout-session', {lineItems})
+            // initialize the Stripe object
             const stripe = await stripePromise
+            // redirect to the Stripe checkout page with the session id (which pass through from backend)
             await stripe.redirectToCheckout({ sessionId: data.id });
         } catch (error) {
             console.error('error during checkout:', error);
@@ -51,13 +56,15 @@ export const CartItems = () => {
                 <p>Remove</p>
             </div>
             <hr />
-            {all_product.map((e)=>{
+            {all_product.map((e)=>{ // get all product from data file (e) - elements inside the file 
+                // check if the quantity of the product in the cart is greater than 0
                 if(cartItems[e.id]>0)
                 {
                     return  (<div key={e.id}>
+                                 {/* display each product in the cart */}
                                 <div className="cartitems-format cartitems-format-main">
                                     <img src={e.imageUrl} alt="" className="carticon-product-icon" />
-                                    <p>{e.name}</p>
+                                    <p>{e.name}</p> 
                                     <p>${e.price}</p>
                                     <button className="cartitems-quantity">{cartItems[e.id]}</button>
                                     <p>${e.price*cartItems[e.id]}</p>
@@ -67,7 +74,7 @@ export const CartItems = () => {
                             </div>
                     );
                 }
-                return null;
+                return null; // exclude product with quantity 0 (not selected by user)
             })}
             <div className="cartitems-down">
                 <div className="cartitems-total">
