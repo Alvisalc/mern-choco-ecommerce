@@ -2,10 +2,44 @@ import React, {useContext} from 'react'
 import './CartItems.css'
 import { ShopContext } from '../../Context/ShopContext'
 import { VscDiffRemoved } from "react-icons/vsc";
-
+import axios from 'axios';
+import {loadStripe} from '@stripe/stripe-js';
 
 export const CartItems = () => {
     const {all_product,cartItems,removeFromCart,getTotalCartAmount} = useContext(ShopContext);
+    const stripePromise = loadStripe('pk_test_51Oe2omJv1ndIt9tZIHqNDCBWAptlKEgsLFnt73tEXEL1xh9INhKJivohE73Jt97eOAMrjoAAid9ZF5sTlK24z6pv00ZkSRZkuG');
+
+
+
+    const handleCheckout = async () => {
+
+        const lineItems = Object.keys(cartItems).map((itemId)=>{
+            const quantity = cartItems[itemId];
+            if(quantity > 0){
+                const item = all_product.find((product)=>product.id === Number(itemId));
+                return {
+                    price_data: {
+                        currency: "cad",
+                        product_data: {
+                            name: item.name,
+                        },
+                        unit_amount: Math.round(item.price * 100),
+                    },
+                    quantity: quantity
+                };
+            }
+            return null; // exclude items with quantity 0 - works well
+        }).filter(Boolean); // remove null entries - works well
+
+        try{
+            const {data} = await axios.post('http://localhost:4000/create-checkout-session', {lineItems})
+            const stripe = await stripePromise
+            await stripe.redirectToCheckout({ sessionId: data.id });
+        } catch (error) {
+            console.error('error during checkout:', error);
+        }
+    }
+
     return (
         <div className="cartitems">
             <div className="cartitems-format-main">
@@ -54,7 +88,8 @@ export const CartItems = () => {
                             <h3>${getTotalCartAmount()}</h3>
                         </div>
                     </div>
-                    <button>PROCEED TO CHECKOUT</button>
+                    <button onClick={handleCheckout}>CHECKOUT WITH STRIPE</button>
+                    
                 </div>
                 <div className="cartitems-promocode">
                     <p>If you have a promo code, Enter it here</p>

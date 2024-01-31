@@ -17,19 +17,15 @@ const username = process.env.mongodb_username;
 const password = process.env.mongodb_password;
 mongoose.connect(`mongodb+srv://${username}:${password}@cluster0.g9uwwfh.mongodb.net/mern-choco-ecommerce`);
 
+
+// Stripe API
+const stripe = require('stripe')(process.env.stripe_secret_key);
+
+
 // Express server
 app.get("/",(req,res)=>{
     res.send("Express App is Running")
 })
-
-// Stripe API
-const stripe = require('stripe')(process.env.strip_private_key)
-
-// StoreItems from cart to stripe check out
-const storeItems = new Map([
-    [1, {priceInCents: 10000, name:"First Price"}],
-    [2, {priceInCents: 20000, name:"Second Price"}]
-])
 
 // Image Storage Engine
 const storage = multer.diskStorage({
@@ -230,7 +226,6 @@ const fetchUser = async (req,res,next)=>{
     }
 }
 
-
 // creating enpoint for adding products to cart
 app.post("/addtocart",fetchUser,async(req,res)=>{
     // console.log(req.body,req.user);
@@ -255,6 +250,26 @@ app.post("/removefromcart",fetchUser,async(req,res)=>{
 app.post("/getcart",fetchUser,async(req,res)=>{
     
 })
+
+// Stripe
+app.post('/create-checkout-session', async (req, res) => {
+    try {
+    const session = await stripe.checkout.sessions.create({
+        line_items: req.body.lineItems,
+        mode: 'payment',
+        success_url: `${process.env.CLIENT_URL}/success`,
+        cancel_url: `${process.env.CLIENT_URL}/cart`,
+    });
+
+    res.send({id: session.id}); // change redirect to send 
+
+    } catch (error) {
+        console.error("Error creating checkout session:", error);
+        res.status(500).json({ success: false, errors: "Internal Server Error" });
+    }
+});
+
+
 
 
 // check the server connection 
