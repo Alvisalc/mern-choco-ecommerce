@@ -41,7 +41,7 @@
     border-radius: 5px;
     font-size: 16px;
     font-weight: 600;
-    visibility: hidden;
+    display: none;
 }
 
 .nav-menu li{
@@ -146,7 +146,7 @@ ul .nav-btn{
         visibility: hidden;
     }
     .nav-menu button{
-        visibility: visible;
+        display: inline-block;
         padding: 10px 30px;
     }
   }

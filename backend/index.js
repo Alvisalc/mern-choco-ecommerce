@@ -1,126 +1,26 @@
 const port = 4000;
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
-const jwt = require("jsonwebtoken");
-const multer = require("multer");
-const path = require("path");
-const cors = require("cors");
-const bcrypt = require('bcrypt'); // secure user password
-require('dotenv').config();
+const mongoose = require("mongoose"); // for MongoDB integration
+const jwt = require("jsonwebtoken"); // for user authentication
+const cors = require("cors"); // cross-origin resource sharing
+const bcrypt = require('bcrypt'); // for password hashing and verification
+require('dotenv').config(); // secure API key
 
-app.use(express.json());
-app.use(cors());
+app.use(express.json()); // enable middleware to parse incoming JSON data in requests
+app.use(cors()); // enable middleware to cros for hanlding cross-origin requests
 
 // Database Connection with MongoDB
 const username = process.env.mongodb_username;
 const password = process.env.mongodb_password;
 mongoose.connect(`mongodb+srv://${username}:${password}@cluster0.g9uwwfh.mongodb.net/mern-choco-ecommerce`);
 
-
 // Stripe API
 const stripe = require('stripe')(process.env.stripe_secret_key);
-
 
 // Express server
 app.get("/",(req,res)=>{
     res.send("Express App is Running")
-})
-
-// Image Storage Engine
-const storage = multer.diskStorage({
-    destination: './upload/images',
-    filename: (req,file,cb)=>{
-        return cb(null,`${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
-    }
-})
-
-const upload = multer({storage:storage})
-
-// Creating Upload Endpoint for images
-app.use(`/images`,express.static('upload/images'))
-
-app.post("/upload", upload.single('product'),(req,res)=>{
-    res.json({
-        success:1,
-        image_url:`http://localhost:${port}/images/${req.file.filename}`
-    })
-})
-
-// Schema for Creating Products
-const Product = mongoose.model("Product",{
-    id:{
-        type: Number,
-        required:true,
-    },
-    name:{
-        type:String,
-        required:true,
-    },
-    category:{
-        type:String,
-        required:true,
-    },
-    image:{
-        type:String,
-        required:true,
-    },
-    price:{
-        type:Number,
-        required:true,
-    },
-    date:{
-        type:Date,
-        default:Date.now,
-    },
-    avilable:{
-        type:Boolean,
-        default:true,
-    },
-})
-
-// Add Product
-app.post('/addproduct',async (req,res)=>{
-    let products = await Product.find({}); 
-    let id;
-    if(products.length>0){
-        let last_product_array = products.slice(-1);
-        let last_product = last_product_array[0];
-        id = last_product.id + 1;
-    } else {
-        id = 1;
-    }
-    const product = new Product({
-        id:id, 
-        name:req.body.name,
-        image:req.body.image,
-        category:req.body.category,
-        price:req.body.price,
-    });
-    console.log(product);
-    await product.save();
-    console.log("Saved");
-    res.json({
-        success:true,
-        name:req.body.name,
-    })
-})
-
-// Remove Product
-app.post('/removeproduct',async(req,res)=>{
-    await Product.findOneAndDelete({id:req.body.id});
-    console.log("Removed");
-    res.json({
-        success:true,
-        name:req.body.name
-    })
-})
-
-// Get all Products
-app.get('/allproducts',async (req,res)=>{
-    let products = await Product.find({});
-    console.log("All Products Fetached");
-    res.send(products);
 })
 
 // Shema creating for User model
@@ -128,7 +28,7 @@ const Users = mongoose.model("Users",{
     name:{
         type:String,    
     },
-    email:{ // check if we need this
+    email:{
         type:String,
         unique:true,
     },
@@ -184,7 +84,7 @@ app.post("/signup",async (req,res)=>{
 
 })
 
-// Creating endpoint for user login
+// User login
 app.post("/login", async (req,res)=>{
     let user = await Users.findOne({email:req.body.email});
     if (user) {
@@ -209,7 +109,7 @@ app.post("/login", async (req,res)=>{
     }
 })
 
-// creating middleware to fetch user
+// middleware to fetch user
 const fetchUser = async (req,res,next)=>{
     const token = req.header("auth-token");
     if (!token){
@@ -226,51 +126,41 @@ const fetchUser = async (req,res,next)=>{
     }
 }
 
-// creating enpoint for adding products to cart
+// add products to cart
 app.post("/addtocart",fetchUser,async(req,res)=>{
-    // console.log(req.body,req.user);
-    console.log("Added",req.body.itemId);
+    console.log("added",req.body.itemId);
     let userData = await Users.findOne({_id:req.user.id});
     userData.cartData[req.body.itemId] += 1;
-    await Users.findOneAndUpdate({id:req.user.id},{cartData:userData.cartData});
-    res.send("Added")
+    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
 })
 
-// creating endpoint to remove product from cart
+// remove product from cart
 app.post("/removefromcart",fetchUser,async(req,res)=>{
     console.log("removed",req.body.itemId);
     let userData = await Users.findOne({_id:req.user.id});
-    if(userData.cartData[req.body.itemID]>0)
+    if(userData.cartData[req.body.itemId]>0)
     userData.cartData[req.body.itemId] -= 1;
-    await Users.findOneAndUpdate({id:req.user.id},{cartData:userData.cartData});
-    res.send("Removed")
+    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
 })
 
-// get cart data
-app.post("/getcart",fetchUser,async(req,res)=>{
-    
-})
-
-// Stripe
+// Stripe check-out
 app.post('/create-checkout-session', async (req, res) => {
     try {
+    // setup the session layout and content 
     const session = await stripe.checkout.sessions.create({
-        line_items: req.body.lineItems,
+        line_items: req.body.lineItems, // important to pass the line item through the Stripe
         mode: 'payment',
         success_url: `${process.env.CLIENT_URL}/success`,
         cancel_url: `${process.env.CLIENT_URL}/cart`,
     });
 
     res.send({id: session.id}); // pass it to frontend to identify the checkout session
-
+    
     } catch (error) {
         console.error("Error creating checkout session:", error);
         res.status(500).json({ success: false, errors: "Internal Server Error" });
     }
 });
-
-
-
 
 // check the server connection 
 app.listen(port,(error)=>{
