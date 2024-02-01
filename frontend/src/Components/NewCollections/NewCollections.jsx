@@ -43,7 +43,7 @@ export const NewCollections = () => {
   return (
         <div className="new-collections-container">
           <div className="new-collections">
-          <h1>New Collection</h1>
+          <h1>NEW COLLECTION</h1>
           <hr/>
           <div className="slider-container">
           <Slider {...settings}>

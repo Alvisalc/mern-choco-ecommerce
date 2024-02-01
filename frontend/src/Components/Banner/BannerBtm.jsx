@@ -13,7 +13,7 @@ export const BannerBtm = () => {
               </div>
               <div className="text-side">
                 <div className="text">
-                  <h2>Discover Your Perfect Gift: An Assorted Selection of Delight</h2>
+                  <h2>Discover Your Perfect Gift: An Assorted Selection</h2>
                   <p>Embark on a journey of joy and surprise with our curated collection of gifts.</p>
                   <Link to="/assorted"><button>Explore More</button></Link>
                 </div>

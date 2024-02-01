@@ -1,6 +1,9 @@
+.newsletter{
+  padding-bottom: 5rem;
+  background-color: #f5f5f5;
+}
+
 .newsletter-section {
-    height: 30vh;
-    background-color: #f5f5f5;
     padding: 40px;
     text-align: center;
 }
@@ -40,14 +43,22 @@
 
 @media (max-width:800px) {
     .newsletter-section h2{
-      font-size: 1.8rem;
+      font-size: 20px;
+    }
+    .newsletter-section p{
+      font-size: 12px;
+    }
+    .newsletter-email{
+      max-width: 250px;
     }
 }
 
 @media (max-width:500px) {
   .newsletter-section {
     padding: 35px;
-    height: 35vh;
+  }
+  .newsletter-email{
+    max-width: 200px;
   }
   .newsletter-form button{
     margin-top: 20px;

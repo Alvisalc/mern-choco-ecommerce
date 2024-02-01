@@ -10,7 +10,7 @@
 
 .banner-container, .banner-container-reverse{
     display: flex;
-    height: 35rem;
+    height: 30rem;
     justify-content: space-between;
     overflow: hidden;
 }

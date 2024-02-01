@@ -22,7 +22,7 @@ export const Navbar = () => {
       {/* navbar-left-section */}
       <div className="nav-logo">
         <Link to="/"><img className="logo" src={logo} alt="" /></Link>
-        <p>Choco</p>
+        <p>CHOCO</p>
       </div>
       {/* navbar-menu-center */}
       <ul className="nav-menu" ref={navRef}>
