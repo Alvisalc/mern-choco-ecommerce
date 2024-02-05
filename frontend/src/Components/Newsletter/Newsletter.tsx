@@ -1,3 +1,4 @@
+import React from 'react';
 import './Newsletter.css';
 
 export const Newsletter = () => {
@@ -19,7 +20,6 @@ export const Newsletter = () => {
       </div>
     </div>
     </div>
-    
   );
 };
 

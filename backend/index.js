@@ -13,7 +13,7 @@ app.use(cors()); // enable middleware to cros for hanlding cross-origin requests
 // Database Connection with MongoDB
 const username = process.env.mongodb_username;
 const password = process.env.mongodb_password;
-mongoose.connect(`mongodb+srv://${username}:${password}@cluster0.g9uwwfh.mongodb.net/mern-choco-ecommerce`);
+mongoose.connect(`mongodb+srv://${username}:${password}@cluster0.g9uwwfh.mongodb.net/mern-choco-ecommerce`); // api seperate
 
 // Stripe API
 const stripe = require('stripe')(process.env.stripe_secret_key);
@@ -24,6 +24,7 @@ app.get("/",(req,res)=>{
 })
 
 // Shema creating for User model
+// sepearte the model
 const Users = mongoose.model("Users",{
     name:{
         type:String,    
@@ -52,6 +53,7 @@ app.post("/signup",async (req,res)=>{
     }
 
     // If the user not register before, will create a cart
+    // find the issue - for loop not 
     let cart = {};
     for (let i = 0; i < 300; i++){
         cart[i] = 0;
@@ -110,6 +112,8 @@ app.post("/login", async (req,res)=>{
 })
 
 // middleware to fetch user
+
+// middleware sepearte
 const fetchUser = async (req,res,next)=>{
     const token = req.header("auth-token");
     if (!token){

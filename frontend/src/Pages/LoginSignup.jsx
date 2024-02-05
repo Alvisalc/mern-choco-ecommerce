@@ -4,7 +4,7 @@ import './CSS/LoginSignup.css'
 export const LoginSignup = () => {
 
   const [state,setState] = useState("Login");
-
+  
   const [formData,setFormData] = useState({
     username:"",
     password:"",
@@ -15,6 +15,7 @@ export const LoginSignup = () => {
   const changeHandler = (e) => {
     setFormData({...formData,[e.target.name]:e.target.value})
   }
+
 
   const login = async () =>{
     console.log("Login Function Executed",formData);
@@ -36,6 +37,7 @@ export const LoginSignup = () => {
       alert(responseData.errors)
     }
   }
+
 
   const signup = async () =>{
     console.log("Signup Function Executed",formData);
