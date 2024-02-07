@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react'
-import all_product from '../Components/all_product.js'
+import all_product from '../Components/all_product.ts'
 
 export const ShopContext = createContext(null);
 
@@ -12,7 +12,8 @@ const getDefaultCart = ()=>{
     return cart;
 }
 
-export const ShopContextProvider = (props) => {
+// props: any - temporary type
+export const ShopContextProvider = (props:any) => { 
 
     const [cartItems,setCartItems] = useState(getDefaultCart());
 

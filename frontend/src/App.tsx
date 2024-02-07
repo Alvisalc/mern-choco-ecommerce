@@ -1,13 +1,14 @@
+import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Navbar } from './Components/Navbar/Navbar';
-import { Shop } from './Pages/Shop';
-import { ShopCategory } from './Pages/ShopCategory';
-import { Product } from './Pages/Product';
-import { Cart } from './Pages/Cart';
+import { Navbar } from './Components/Navbar/Navbar.tsx';
+import { Shop } from './Pages/Shop.tsx';
+import { ShopCategory } from './Pages/ShopCategory.tsx';
+import { Product } from './Pages/Product.tsx';
+import { Cart } from './Pages/Cart.tsx';
 import { LoginSignup } from './Pages/LoginSignup.tsx';
 import { Footer } from './Components/Footer/Footer.tsx';
-import { Success } from './Pages/Success';
+import { Success } from './Pages/Success.tsx';
  
 function App() {
   return (

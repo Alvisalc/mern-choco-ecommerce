@@ -1,13 +1,15 @@
 import React, {useContext} from 'react'
 import './CartItems.css'
-import { ShopContext } from '../../Context/ShopContext'
+import { ShopContext } from '../../Context/ShopContext.tsx'
 import { VscDiffRemoved } from "react-icons/vsc";
 import axios from 'axios';
 import {loadStripe} from '@stripe/stripe-js';
+import { ShopContextType } from '../type.ts';
 
-export const CartItems = () => {
-    const {all_product,cartItems,removeFromCart,getTotalCartAmount} = useContext(ShopContext);
-    const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
+export const CartItems: React.FC = () => {
+
+    const {all_product,cartItems,removeFromCart,getTotalCartAmount} = useContext<ShopContextType>(ShopContext);
+    const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY!);
 
     // Check out with Stripe button logic
     const handleCheckout = async () => {
