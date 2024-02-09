@@ -6,7 +6,7 @@ import { ShopContext } from '../../Context/ShopContext';
 import { FaBars } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
 
-const logo: string = '../Assets/choco-white.png'
+import logo from '../Assets/choco-white.png';
 
 export const Navbar = () => {
 

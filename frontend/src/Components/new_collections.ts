@@ -1,4 +1,4 @@
-import { TProduct } from './type';
+import { TProduct } from '../Types/type';
 
 const pd1: string = './Assets/pd-assort-2.jpg';
 const pd2: string = './Assets/pd-cake-5.jpg';

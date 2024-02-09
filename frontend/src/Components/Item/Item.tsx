@@ -1,7 +1,7 @@
 import React from 'react'
 import './Item.css'
 import { Link } from 'react-router-dom'
-import { ItemProps } from '../type';
+import { ItemProps } from '../../Types/type';
 
 export const Item: React.FC<ItemProps> = (props) => {
   return (

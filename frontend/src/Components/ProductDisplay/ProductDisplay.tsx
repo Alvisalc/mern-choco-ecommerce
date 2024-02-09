@@ -7,7 +7,7 @@ export const ProductDisplay = (props) => {
 
     const {product} = props;
 
-    const {addToCart} = useContext(ShopContext);
+    const {addToCart} = useContext(ShopContext)!; // ! what is this?
 
     return (
         <div className="productdisplay">

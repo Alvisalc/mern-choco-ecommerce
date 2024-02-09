@@ -1,6 +1,6 @@
 import React, { ReactNode, createContext, useState } from 'react'
 import all_product from '../Components/all_product.ts'
-import { ShopContextType, TProduct } from '../Components/type.ts';
+import { ShopContextType, TProduct } from '../Types/type.ts';
 
 
 interface ShopContextProviderProps {

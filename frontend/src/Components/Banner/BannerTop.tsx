@@ -1,7 +1,7 @@
 import React from 'react'
 import './Banner.css'
+import banner from '../Assets/banner-1.jpg';
 
-const banner: string = '../Assets/banner-1.jpg';
 
 export const BannerTop = () => {
   return (

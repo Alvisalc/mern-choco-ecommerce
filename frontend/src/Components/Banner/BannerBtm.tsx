@@ -1,8 +1,7 @@
 import React from 'react'
 import './Banner.css'
 import {Link} from 'react-router-dom'
-
-const banner: string = '../Assets/banner-3.jpg';
+import banner from'../Assets/banner-3.jpg';
 
 export const BannerBtm = () => {
   return (

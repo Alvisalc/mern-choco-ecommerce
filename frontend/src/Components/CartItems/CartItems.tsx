@@ -4,7 +4,7 @@ import { ShopContext } from '../../Context/ShopContext.tsx'
 import { VscDiffRemoved } from "react-icons/vsc";
 import axios from 'axios';
 import {loadStripe} from '@stripe/stripe-js';
-import { TProduct, ShopContextType } from '../type.ts';
+import { TProduct, ShopContextType } from '../../Types/type.ts';
 
 export const CartItems: React.FC = () => {
 
