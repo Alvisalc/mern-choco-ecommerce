@@ -15,8 +15,19 @@ export type BreadcrumProps = {
 }
 
 export type ShopContextType = {
-    all_product: any,
-    cartItems: any,
-    removeFromCart: () => void,
-    getTotalCartAmount: () => number
+    all_product: TProduct[];
+    cartItems: Record<number, number>;
+    addToCart: (itemId: number) => void;
+    removeFromCart: (itemId: number) => void;
+    getTotalCartAmount: () => number;
+    getTotalCartItems: () => number;
 }
+
+
+export type ItemProps = {
+    id: number;
+    name: string;
+    image: string;
+    price: number;
+  }
+  

@@ -4,18 +4,18 @@ import { ShopContext } from '../../Context/ShopContext.tsx'
 import { VscDiffRemoved } from "react-icons/vsc";
 import axios from 'axios';
 import {loadStripe} from '@stripe/stripe-js';
-import { ShopContextType } from '../type.ts';
+import { TProduct, ShopContextType } from '../type.ts';
 
 export const CartItems: React.FC = () => {
 
-    const {all_product,cartItems,removeFromCart,getTotalCartAmount} = useContext<ShopContextType>(ShopContext);
+    const {all_product,cartItems,removeFromCart,getTotalCartAmount} = useContext(ShopContext)!;
     const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY!);
 
     // Check out with Stripe button logic
     const handleCheckout = async () => {
         // create line items based on the items in the cart
         const lineItems = Object.keys(cartItems).map((itemId)=>{
-            const quantity = cartItems[itemId];
+            const quantity = cartItems[Number(itemId)];
             if(quantity > 0){
                 // find the product details based on the item id
                 const item = all_product.find((product)=>product.id === Number(itemId));
