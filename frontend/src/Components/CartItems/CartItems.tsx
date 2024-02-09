@@ -4,7 +4,6 @@ import { ShopContext } from '../../Context/ShopContext.tsx'
 import { VscDiffRemoved } from "react-icons/vsc";
 import axios from 'axios';
 import {loadStripe} from '@stripe/stripe-js';
-import { TProduct, ShopContextType } from '../../Types/type.ts';
 
 export const CartItems: React.FC = () => {
 
@@ -19,18 +18,22 @@ export const CartItems: React.FC = () => {
             if(quantity > 0){
                 // find the product details based on the item id
                 const item = all_product.find((product)=>product.id === Number(itemId));
-                return {
-                    // price data for the Stripe session
-                    price_data: {
-                        currency: "cad",
-                        product_data: {
-                            name: item.name,
+
+                if(item && item.price && quantity > 0){
+                      return {
+                        // price data for the Stripe session
+                        price_data: {
+                            currency: "cad",
+                            product_data: {
+                                name: item?.name,
+                            },
+                            // convert to cents (Stripe epects amount in cents)
+                            unit_amount: Math.round(item.price * 100),
                         },
-                        // convert to cents (Stripe epects amount in cents)
-                        unit_amount: Math.round(item.price * 100),
-                    },
-                    quantity: quantity
-                };
+                        quantity: quantity
+                    };
+                }
+              
             }
             return null; // exclude items with quantity 0 - success
         }).filter(Boolean); // remove null entries - success
@@ -41,7 +44,11 @@ export const CartItems: React.FC = () => {
             // initialize the Stripe object
             const stripe = await stripePromise
             // redirect to the Stripe checkout page with the session id (which pass through from backend)
-            await stripe.redirectToCheckout({ sessionId: data.id });
+            if (stripe) {
+                await stripe.redirectToCheckout({ sessionId: data.id });
+                } else {
+                console.error('Stripe object is null');
+                }
         } catch (error) {
             console.error('error during checkout:', error);
         }
