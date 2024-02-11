@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom';
 import { ShopContext } from '../../Context/ShopContext';
 import { FaBars } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
+import { ShopContextType } from '../../Types/type';
 
 import logo from '../Assets/choco-white.png';
 
 export const Navbar = () => {
 
-  const {getTotalCartItems} = useContext(ShopContext);
+  const {getTotalCartItems} = useContext<ShopContextType>(ShopContext);
   const navRef = useRef();
 
   const showNavbar = () => {

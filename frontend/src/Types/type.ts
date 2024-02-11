@@ -36,3 +36,20 @@ export type CartItem = {
   name: string;
   price: number;
 }
+
+
+export type ProductDisplayProps = {
+  product: {
+    id: number;
+    name: string;
+    imageUrl: string;
+    price: number;
+    description: string;
+  }
+}
+
+export type ShopCategoryProps = {
+  product: string;
+  category: string;
+  name: string;
+}

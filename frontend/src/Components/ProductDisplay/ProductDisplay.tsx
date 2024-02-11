@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
 import './ProductDisplay.css'
 import { ShopContext } from '../../Context/ShopContext';
+import { ProductDisplayProps } from '../../Types/type';
 
 
-export const ProductDisplay = (props) => {
+export const ProductDisplay: React.FC<ProductDisplayProps> = (props) => {
 
     const {product} = props;
 

@@ -2,11 +2,13 @@ import React, { useContext, useState, useEffect } from 'react'
 import './CSS/ShopCategory.css'
 import { ShopContext } from '../Context/ShopContext'
 import Item from '../Components/Item/Item'
+import { ShopCategoryProps } from '../Types/type'
 
 
-export const ShopCategory = (props) => {
+export const ShopCategory: React.FC<ShopCategoryProps> = (props) => {
 
-    const {all_product} = useContext(ShopContext);
+    const {all_product} = useContext(ShopContext)!;
+
     const [categoryName, setCategoryName] = useState(props.name);
 
     useEffect(() => {
