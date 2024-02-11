@@ -49,7 +49,13 @@ export type ProductDisplayProps = {
 }
 
 export type ShopCategoryProps = {
-  product: string;
-  category: string;
+  product?: string;
+  category?: string;
   name: string;
+}
+
+export type responseData = {
+  success: boolean;
+  token: string;
+  errors?: string;
 }

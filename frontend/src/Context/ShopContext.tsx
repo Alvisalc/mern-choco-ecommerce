@@ -90,7 +90,14 @@ export const ShopContextProvider: React.FC<ShopContextProviderProps> = (props) =
     }
 
     // using context can access the cartItems in any components
-    const contextValue = {getTotalCartItems,getTotalCartAmount,all_product,cartItems,addToCart,removeFromCart};
+    const contextValue: ShopContextType = {
+        getTotalCartItems,
+        getTotalCartAmount,
+        all_product,
+        cartItems,
+        addToCart,
+        removeFromCart
+    };
 
     return (
         <ShopContext.Provider value={contextValue}>

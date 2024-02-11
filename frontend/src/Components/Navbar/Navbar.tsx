@@ -12,10 +12,10 @@ import logo from '../Assets/choco-white.png';
 export const Navbar = () => {
 
   const {getTotalCartItems} = useContext<ShopContextType>(ShopContext);
-  const navRef = useRef();
+  const navRef = useRef<HTMLDivElement>(null);
 
   const showNavbar = () => {
-    navRef.current.classList.toggle("responsive_nav");
+    navRef.current?.classList.toggle("responsive_nav");
   }
 
   return (

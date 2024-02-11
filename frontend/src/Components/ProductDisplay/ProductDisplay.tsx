@@ -8,7 +8,7 @@ export const ProductDisplay: React.FC<ProductDisplayProps> = (props) => {
 
     const {product} = props;
 
-    const {addToCart} = useContext(ShopContext)!; // ! what is this?
+    const {addToCart} = useContext(ShopContext)!;
 
     return (
         <div className="productdisplay">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './CSS/LoginSignup.css'
+import { responseData } from '../Types/type';
 
 export const LoginSignup = () => {
 
@@ -12,14 +13,16 @@ export const LoginSignup = () => {
   })
 
 
-  const changeHandler = (e) => {
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({...formData,[e.target.name]:e.target.value})
   }
 
 
   const login = async () =>{
     console.log("Login Function Executed",formData);
-    let responseData;
+
+    let responseData: responseData | undefined;
+
     await fetch("http://localhost:4000/login",{
       method:"POST",
       headers:{
@@ -27,21 +30,22 @@ export const LoginSignup = () => {
         "Content-Type":"application/json",
       },
       body: JSON.stringify(formData),
-    }).then((response)=> response.json()).then((data)=>responseData=data)
+    }).then((response)=> response.json()).then((data: responseData)=>(responseData=data)) // this line of code is different from signup (need to test)
 
-    if(responseData.success){
-      localStorage.setItem("auth-token",responseData.token);
-      window.location.replace("/");
-    }
-    else{
-      alert(responseData.errors)
-    }
+    if(responseData && responseData.success){
+          localStorage.setItem("auth-token",responseData.token);
+          window.location.replace("/");
+        }
+        else{
+          alert(responseData?.errors)
+        }
+
   }
 
 
   const signup = async () =>{
     console.log("Signup Function Executed",formData);
-    let responseData;
+    let responseData: responseData | undefined;
     await fetch("http://localhost:4000/signup",{
       method:"POST",
       headers:{
@@ -49,14 +53,14 @@ export const LoginSignup = () => {
         "Content-Type":"application/json",
       },
       body: JSON.stringify(formData),
-    }).then((response)=> response.json()).then((data)=>responseData=data)
+    }).then((response)=> response.json()).then((data)=>responseData=data) // this code is original code 
 
-    if(responseData.success){
+    if(responseData && responseData.success){
       localStorage.setItem("auth-token",responseData.token);
       window.location.replace("/");
     }
     else{
-      alert(responseData.errors)
+      alert(responseData?.errors)
     }
   }
   
