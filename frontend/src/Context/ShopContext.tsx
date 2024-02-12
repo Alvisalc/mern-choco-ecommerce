@@ -7,7 +7,15 @@ interface ShopContextProviderProps {
     children: ReactNode;
   }
   
-export const ShopContext = createContext<ShopContextType | null>(null);
+// change all the output of ShopContextType into empty value and pass through to other tsx to use
+export const ShopContext = createContext<ShopContextType>({
+    all_product: [],
+    cartItems: {},
+    addToCart: (itemId: number) => {},
+    removeFromCart: (itemId: number) => {},
+    getTotalCartAmount: () => 0,
+    getTotalCartItems: () => 0,
+  });
 
 // Define the type for the cart
 type Cart = Record<number, number>;

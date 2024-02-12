@@ -24,12 +24,12 @@ export type ShopContextType = {
     getTotalCartItems: () => number;
 }
 
-
 export type ItemProps = {
     id: number;
     name: string;
     image: string;
     price: number;
+    description?: string;
   }
   
 export type CartItem = {
@@ -44,7 +44,7 @@ export type ProductDisplayProps = {
     name: string;
     imageUrl: string;
     price: number;
-    description: string;
+    description?: string;
   }
 }
 

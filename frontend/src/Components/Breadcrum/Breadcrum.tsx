@@ -1,7 +1,6 @@
 import React from 'react'
 import './Breadcrum.css'
 import { IoIosArrowForward } from "react-icons/io";
-
 import { BreadcrumProps } from '../../Types/type';
 
 export const Breadcrum: React.FC<BreadcrumProps> = (props) => {

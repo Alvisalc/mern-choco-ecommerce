@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useRef, RefObject } from 'react';
 import './Navbar.css';
 import { IoCartOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom';
@@ -12,7 +12,8 @@ import logo from '../Assets/choco-white.png';
 export const Navbar = () => {
 
   const {getTotalCartItems} = useContext<ShopContextType>(ShopContext);
-  const navRef = useRef<HTMLDivElement>(null);
+
+  const navRef: RefObject<HTMLUListElement> = useRef(null);
 
   const showNavbar = () => {
     navRef.current?.classList.toggle("responsive_nav");
@@ -26,7 +27,7 @@ export const Navbar = () => {
         <p>CHOCO</p>
       </div>
       {/* navbar-menu-center */}
-      <ul className="nav-menu" ref={navRef}>
+      <ul className="nav-menu" ref={navRef}> {/* TS2322 - navRef is legacy HTMLelement, resolve by adding line 16 */}
         <li><Link className="nav-link" onClick={showNavbar} to="/">Shop</Link></li>
         <li><Link className="nav-link" onClick={showNavbar} to="/assorted">Assorted</Link></li>
         <li><Link className="nav-link" onClick={showNavbar} to="/cakes">Cakes</Link></li>
