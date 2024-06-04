@@ -55,7 +55,7 @@ app.post("/signup",async (req,res)=>{
     // If the user not register before, will create a cart
     // find the issue - for loop not 
     let cart = {};
-    for (let i = 0; i < 300; i++){
+    for (let i = 0; i < 37; i++){
         cart[i] = 0;
     }
 
@@ -100,7 +100,7 @@ app.post("/login", async (req,res)=>{
                 }
             }
             const token = jwt.sign(data,"secret_ecom");
-            res.json({success:true,token});
+            res.json({success:true,token, cartData: user.cartData});
         }
         else{
             res.json({success:false,errors:"Wrong Password"});
@@ -122,7 +122,8 @@ const fetchUser = async (req,res,next)=>{
     else{
         try{
             const data = jwt.verify(token,"secret_ecom");
-            req.user = data.user;
+            // req.user = data.user;
+            req.user = await Users.findById(data.user.id); // for fetch user data from backend to frontend
             next();
         } catch (error) {
             res.status(401).send({errors:"Please use valid token"})
@@ -133,18 +134,28 @@ const fetchUser = async (req,res,next)=>{
 // add products to cart
 app.post("/addtocart",fetchUser,async(req,res)=>{
     console.log("added",req.body.itemId);
-    let userData = await Users.findOne({_id:req.user.id});
-    userData.cartData[req.body.itemId] += 1;
-    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
+    let user = req.user;
+    user.cartData[req.body.itemId] = (user.cartData[req.body.itemId] || 0) + 1;
+    await user.save();
+    res.json({ success: true, cartData: user.cartData});
+    // let userData = await Users.findOne({_id:req.user.id});
+    // userData.cartData[req.body.itemId] += 1;
+    // await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
 })
 
 // remove product from cart
 app.post("/removefromcart",fetchUser,async(req,res)=>{
     console.log("removed",req.body.itemId);
-    let userData = await Users.findOne({_id:req.user.id});
-    if(userData.cartData[req.body.itemId]>0)
-    userData.cartData[req.body.itemId] -= 1;
-    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
+    let user = req.user;
+    if (user.cartData[req.body.itemId] > 0) {
+        user.cartData[req.body.itemId] -= 1;
+    }
+    await user.save();
+    res.json({ success: true, cartData: user.cartData });
+    // let userData = await Users.findOne({_id:req.user.id});
+    // if(userData.cartData[req.body.itemId]>0)
+    // userData.cartData[req.body.itemId] -= 1;
+    // await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
 })
 
 // Stripe check-out
