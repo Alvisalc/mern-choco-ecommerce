@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url('../../Components/Assets/signup-bg.jpg');
+    background-image: url('../../Assets/signup-bg.jpg');
     background-size: cover; /* Ensure the background image covers the entire container */
     background-position: center; /* Center the background image */
   }

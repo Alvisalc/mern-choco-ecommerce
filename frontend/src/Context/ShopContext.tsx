@@ -1,4 +1,4 @@
-import React, { ReactNode, createContext, useState } from 'react'
+import React, { ReactNode, createContext, useEffect, useState } from 'react'
 import all_product from '../Components/all_product.ts'
 import { ShopContextType, TProduct } from '../Types/type.ts';
 
@@ -23,7 +23,7 @@ type Cart = Record<number, number>;
 // Create an empty cart
 const getDefaultCart = (): Cart => {
   let cart: Cart = {};
-  for (let index = 0; index < 300 + 1; index++) {
+  for (let index = 0; index < 36 + 1; index++) {
     cart[index] = 0;
   }
   return cart;
@@ -33,6 +33,19 @@ const getDefaultCart = (): Cart => {
 // props: any - temporary type
 export const ShopContextProvider: React.FC<ShopContextProviderProps> = (props) => {
     const [cartItems, setCartItems] = useState<Record<number, number>>(getDefaultCart());
+
+     // Load cart data from local storage on initial load
+    useEffect(() => {
+        const savedCartItems = localStorage.getItem('cart-data'); // Added
+        if (savedCartItems) {
+        setCartItems(JSON.parse(savedCartItems));
+        }
+    }, []);
+
+    // Save cart data to local storage whenever it changes
+    useEffect(() => {
+        localStorage.setItem('cart-data', JSON.stringify(cartItems)); // Added
+    }, [cartItems]);
 
     // Add items to the Cart function
     const addToCart = (itemId: number) =>{

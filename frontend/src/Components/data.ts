@@ -1,9 +1,9 @@
 import { TProduct } from '../Types/type';
 
-const pd1: string = './Assets/pd-assort-1.jpg';
-const pd2: string = './Assets/pd-cake-2.jpg';
-const pd3: string = './Assets/pd-choco-6.jpg';
-const pd4: string = './Assets/pd-assort-7.jpg';
+import pd1 from '../Assets/pd-assort-1.jpg';
+import pd2 from '../Assets/pd-cake-2.jpg';
+import pd3 from '../Assets/pd-choco-6.jpg';
+import pd4 from '../Assets/pd-assort-7.jpg';
 
 const data_product: TProduct[] = [
     {

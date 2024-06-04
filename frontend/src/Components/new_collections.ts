@@ -1,14 +1,13 @@
 import { TProduct } from '../Types/type';
 
-const pd1: string = './Assets/pd-assort-2.jpg';
-const pd2: string = './Assets/pd-cake-5.jpg';
-const pd3: string = './Assets/pd-choco-3.jpg';
-const pd4: string = './Assets/pd-assort-6.jpg';
-const pd5: string = './Assets/pd-assort-7.jpg';
-const pd6: string = './Assets/pd-assort-10.jpg';
-const pd7: string = './Assets/pd-cake-6.jpg';
-const pd8: string = './Assets/pd-choco-11.jpg';
-
+import pd1 from '../Assets/pd-assort-2.jpg';
+import pd2 from '../Assets/pd-cake-5.jpg';
+import pd3 from '../Assets/pd-choco-3.jpg';
+import pd4 from '../Assets/pd-assort-6.jpg';
+import pd5 from '../Assets/pd-assort-7.jpg';
+import pd6 from '../Assets/pd-assort-10.jpg';
+import pd7 from '../Assets/pd-cake-6.jpg';
+import pd8 from '../Assets/pd-choco-11.jpg';
 
 const new_collections: TProduct[] = [
     {

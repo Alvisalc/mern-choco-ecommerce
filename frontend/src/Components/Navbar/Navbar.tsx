@@ -7,11 +7,11 @@ import { FaBars } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
 import { ShopContextType } from '../../Types/type';
 
-import logo from '../Assets/choco-white.png';
+import logo from '../../Assets/choco-white.png';
 
 export const Navbar = () => {
 
-  const {getTotalCartItems} = useContext<ShopContextType>(ShopContext);
+  const { getTotalCartItems } = useContext<ShopContextType>(ShopContext);
 
   const navRef: RefObject<HTMLUListElement> = useRef(null);
 

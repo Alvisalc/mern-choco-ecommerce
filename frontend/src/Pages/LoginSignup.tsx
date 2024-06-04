@@ -34,6 +34,7 @@ export const LoginSignup = () => {
 
     if(responseData && responseData.success){
           localStorage.setItem("auth-token",responseData.token);
+          localStorage.setItem("cart-data", JSON.stringify(responseData.cartData)); // Store cart data
           window.location.replace("/");
         }
         else{

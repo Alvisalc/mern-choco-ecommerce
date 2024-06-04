@@ -58,4 +58,5 @@ export type responseData = {
   success: boolean;
   token: string;
   errors?: string;
+  cartData?: Record<string, number>;
 }

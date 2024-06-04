@@ -96,7 +96,7 @@ export const CartItems: React.FC = () => {
                         <hr />
                         <div className="cartitems-total-item">
                             <p>Shipping Fee</p>
-                            <p>Free </p>
+                            <p>Free</p>
                         </div>
                         <hr />
                         <div className="cartitems-total-item">
