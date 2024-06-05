@@ -40,7 +40,7 @@ export const CartItems: React.FC = () => {
 
         try{
             // send request to the backend to create a checkout session
-            const {data} = await axios.post(`${process.env.SERVER_SIDE_URL}/create-checkout-session`, {lineItems})
+            const {data} = await axios.post(`${process.env.REACT_APP_SERVER_SIDE_URL}/create-checkout-session`, {lineItems})
             // initialize the Stripe object
             const stripe = await stripePromise
             // redirect to the Stripe checkout page with the session id (which pass through from backend)

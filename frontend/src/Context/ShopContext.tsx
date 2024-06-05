@@ -51,7 +51,7 @@ export const ShopContextProvider: React.FC<ShopContextProviderProps> = (props) =
     const addToCart = (itemId: number) =>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
         if(localStorage.getItem("auth-token")){
-            fetch("http://localhost:4000/addtocart",{
+            fetch(`${process.env.REACT_APP_SERVER_SIDE_URL}/addtocart`,{
                 method:"POST",
                 headers:{
                     Accept:"application/form-data",
@@ -69,7 +69,7 @@ export const ShopContextProvider: React.FC<ShopContextProviderProps> = (props) =
     const removeFromCart = (itemId: number) =>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}));
         if(localStorage.getItem("auth-token")){
-            fetch("http://localhost:4000/removefromcart",{
+            fetch(`${process.env.REACT_APP_SERVER_SIDE_URL}/removefromcart`,{
                 method:"POST",
                 headers:{
                     Accept:"application/form-data",

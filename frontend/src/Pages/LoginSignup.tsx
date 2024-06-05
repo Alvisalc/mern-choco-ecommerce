@@ -23,7 +23,7 @@ export const LoginSignup = () => {
 
     let responseData: responseData | undefined;
     // Server side - login
-    await fetch(`${process.env.SERVER_SIDE_URL}/login`,{
+    await fetch(`${process.env.REACT_APP_SERVER_SIDE_URL}/login`,{
       method:"POST",
       headers:{
         Accept:"application/form-data",
@@ -48,7 +48,7 @@ export const LoginSignup = () => {
     console.log("Signup Function Executed",formData);
     let responseData: responseData | undefined;
     // Server side - signup
-    await fetch(`${process.env.SERVER_SIDE_URL}/signup`,{
+    await fetch(`${process.env.REACT_APP_SERVER_SIDE_URL}/signup`,{
       method:"POST",
       headers:{
         Accept:"application/form-data",
