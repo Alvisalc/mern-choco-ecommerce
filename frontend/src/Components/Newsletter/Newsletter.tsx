@@ -2,7 +2,6 @@ import React from 'react';
 import './Newsletter.css';
 
 export const Newsletter = () => {
-
   return (
     <div className="newsletter">
       <div className="newsletter-section">

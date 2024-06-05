@@ -3,11 +3,16 @@ import './Breadcrum.css'
 import { IoIosArrowForward } from "react-icons/io";
 import { BreadcrumProps } from '../../Types/type';
 
-export const Breadcrum: React.FC<BreadcrumProps> = (props) => {
-  const { category, name } = props;
+export const Breadcrum: React.FC<BreadcrumProps> = ({ category, name }) => {
   return (
     <div className="breadcrum">
-        HOME <IoIosArrowForward /> SHOP <IoIosArrowForward /> {category} <IoIosArrowForward /> {name}
+        <span>Home</span>
+        <IoIosArrowForward />
+        <span>Shop</span>
+        <IoIosArrowForward />
+        <span>{category}</span>
+        <IoIosArrowForward /> 
+        <span>{name}</span>
     </div>
   )
 }

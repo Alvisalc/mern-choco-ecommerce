@@ -22,7 +22,9 @@ export const Product = () => {
   const product = all_product?.find((e)=> e.id === Number(productId));
   return (
     <div>
-      <Breadcrum product={product ? String(product) : ''} category={''} name={''}/>
+      {product && (
+        <Breadcrum category={product.category || ''} name={product.name || ''}/>
+      )}
       {product && <ProductDisplay product={product}/>}
       <DescriptionBox/>
       <RelatedProducts/>

@@ -10,7 +10,6 @@ export type TProduct = {
   }
 
 export type BreadcrumProps = {
-    product: string,
     category: string,
     name: string
 }
