@@ -13,11 +13,11 @@ app.get("/", (req, res) => {
   res.send("Express App is Running");
 });
 
-app.use("/api/signup", require('./routes/signup'));
-app.use("/api/login", require('./routes/login'));
-app.use("/api/addtocart", require('./routes/addtocart'));
-app.use("/api/removefromcart", require('./routes/removefromcart'));
-app.use("/api/create-checkout-session", require('./routes/create-checkout-session'));
+app.use("/signup", require('./routes/signup'));
+app.use("/login", require('./routes/login'));
+app.use("/addtocart", require('./routes/addtocart'));
+app.use("/removefromcart", require('./routes/removefromcart'));
+app.use("/create-checkout-session", require('./routes/create-checkout-session'));
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => {
