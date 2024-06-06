@@ -7,16 +7,7 @@ const app = express();
 app.use(express.json());
 
 // Allow requests from your frontend URL
-const allowedOrigins = process.env.PRODUCTION_URL;
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-}));
+app.use(cors());
 
 connectToDatabase();
 
