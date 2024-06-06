@@ -5,7 +5,18 @@ require('dotenv').config();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+
+// Allow requests from your frontend URL
+const allowedOrigins = process.env.PRODUCTION_URL;
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 
 connectToDatabase();
 
@@ -19,9 +30,4 @@ app.use("/api/addtocart", require('./addtocart'));
 app.use("/api/removefromcart", require('./removefromcart'));
 app.use("/api/create-checkout-session", require('./create-checkout-session'));
 
-app.listen(3000, () => console.log("Server ready on port 3000."));
-
-
 module.exports = app;
-
-
