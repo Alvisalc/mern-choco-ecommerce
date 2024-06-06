@@ -1,4 +1,4 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')(process.env.STRIPE_TEST_KEY);
 require('dotenv').config();
 
 const handler = async (req, res) => {
@@ -7,8 +7,8 @@ const handler = async (req, res) => {
       const session = await stripe.checkout.sessions.create({
         line_items: req.body.lineItems,
         mode: 'payment',
-        success_url: `${process.env.CLIENT_URL}/success`,
-        cancel_url: `${process.env.CLIENT_URL}/cart`,
+        success_url: `${process.env.PRODUCTION_URL}/success`,
+        cancel_url: `${process.env.PRODUCTION_URL}/cart`,
       });
       res.send({ id: session.id });
     } catch (error) {
