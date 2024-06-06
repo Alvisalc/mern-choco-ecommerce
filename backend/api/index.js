@@ -29,11 +29,5 @@ app.use("/api/login", require('./login'));
 app.use("/api/addtocart", require('./addtocart'));
 app.use("/api/removefromcart", require('./removefromcart'));
 app.use("/api/create-checkout-session", require('./create-checkout-session'));
-app.use("/api/home", require('./home'));
-
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server ready on port ${port}.`);
-});
 
 module.exports = app;
