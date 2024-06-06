@@ -19,4 +19,9 @@ app.use("/api/addtocart", require('./addtocart'));
 app.use("/api/removefromcart", require('./removefromcart'));
 app.use("/api/create-checkout-session", require('./create-checkout-session'));
 
+app.listen(3000, () => console.log("Server ready on port 3000."));
+
+
 module.exports = app;
+
+
