@@ -7,7 +7,13 @@ const app = express();
 app.use(express.json());
 
 // Allow requests from your frontend URL
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["https://choco-ecommerce-react.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
 
 connectToDatabase();
 
