@@ -21,10 +21,10 @@ app.get("/", (req, res) => {
   res.send("Express App is Running");
 });
 
-app.use("/api/signup", require('./api/signup'));
-app.use("/api/login", require('./api/login'));
-app.use("/api/addtocart", require('./api/addtocart'));
-app.use("/api/removefromcart", require('./api/removefromcart'));
-app.use("/api/create-checkout-session", require('./api/create-checkout-session'));
+app.use("/api/signup", require('./models/signup'));
+app.use("/api/login", require('./models/login'));
+app.use("/api/addtocart", require('./models/addtocart'));
+app.use("/api/removefromcart", require('./models/removefromcart'));
+app.use("/api/create-checkout-session", require('./models/create-checkout-session'));
 
 module.exports = app;
