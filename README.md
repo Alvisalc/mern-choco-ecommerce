@@ -4,7 +4,7 @@
   It offers users an experience to that of a real-world e-commerce website, ensuring a delightful shopping journey.</p>
 
 ## ✨ Features
-<b>MongoDB | Express.js | React | Node.js | TypeScript | Vanilla CSS</b>
+<b>MongoDB | Express.js | React | Node.js | JavaScript | TypeScript | Vanilla CSS</b>
 <p>Checkout: <b>Stripe</b></p>
 <p>Deployment: <b>Vercel</b></p>
 
