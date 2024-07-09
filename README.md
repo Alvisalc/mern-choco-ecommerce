@@ -16,7 +16,7 @@
 <li><b>Responsive Design:</b> A fully responsive website design ensures optimal usability across all devices.</li>
 
 
-## 👇 See the demo below:
+## 👇 Have Fun:
 <p>Demo Link: <a href="https://choco-ecommerce-react.vercel.app/" target="_blank"rel="noopener noreferrer">Demo</a></p>
 <p>username: admin</p>
 <p>password: admin</p>
