@@ -3,10 +3,18 @@
   the MERN stack (MongoDB, Express.js, React.js, Node.js), this e-commerce application is based on my personal love for chocolate and designed with ❤️. 
   It offers users an experience to that of a real-world e-commerce website, ensuring a delightful shopping journey.</p>
 
-## ✨ Features
+## 🔨 Tech Stacks
 <b>MongoDB | Express.js | React | Node.js | JavaScript | TypeScript | Vanilla CSS</b>
 <p>Checkout: <b>Stripe</b></p>
 <p>Deployment: <b>Vercel</b></p>
+
+## ✨ Features
+<li><b>User Authentication:</b> Secure login and signup processes with MongoDB, featuring password encryption and session management.</li>
+<li><b>Product Catalog:</b> Extensive product listings include detailed pages with descriptions, images and related product section.</li>
+<li><b>Shopping Cart:</b> Users can add items to the cart, modify selections that retains items between sessions.</li>
+<li><b>Checkout Process:</b> Smooth checkout with multiple payment options and secure transactions, powered by Stripe.</li>
+<li><b>Responsive Design:</b> A fully responsive website design ensures optimal usability across all devices.</li>
+
 
 ## 👇 See the demo below:
 <p>Demo Link: <a href="https://choco-ecommerce-react.vercel.app/" target="_blank"rel="noopener noreferrer">Demo</a></p>
